@@ -1,0 +1,17 @@
+{
+    "name": "angel/whats-client-center",
+    "description": "Sistema de prueba de respuesta por whatsapp bussines y ver estadisticas de uso clientes y usuarios de la app",
+    "autoload": {
+    "psr-4": {
+        "App\\": "app/"
+    }
+   },
+    "authors": [
+        {
+            "name": "y"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
