@@ -62,8 +62,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     FILE_APPEND
         );
 
+    try {
+
     $service = new WebhookService();
     $service->process($payload);
+
+} catch (Throwable $e) {
+
+    file_put_contents(
+        __DIR__.'/storage/logs/error.log',
+        date('Y-m-d H:i:s').PHP_EOL.
+        $e->getMessage().PHP_EOL.
+        $e->getTraceAsString().PHP_EOL.PHP_EOL,
+        FILE_APPEND
+    );
+
+}
 
     http_response_code(200);
     echo "EVENT_RECEIVED";
