@@ -1,0 +1,82 @@
+====================
+Entró a process()
+Array
+(
+    [object] => whatsapp_business_account
+    [entry] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 0
+                    [changes] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [field] => messages
+                                    [value] => Array
+                                        (
+                                            [messaging_product] => whatsapp
+                                            [metadata] => Array
+                                                (
+                                                    [display_phone_number] => 16505551111
+                                                    [phone_number_id] => 123456123
+                                                )
+
+                                            [contacts] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [profile] => Array
+                                                                (
+                                                                    [name] => test user name
+                                                                )
+
+                                                            [wa_id] => 16315551181
+                                                            [user_id] => US.13491208655302741918
+                                                        )
+
+                                                )
+
+                                            [messages] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [id] => ABGGFlA5Fpa
+                                                            [timestamp] => 1504902988
+                                                            [from] => 16315551181
+                                                            [from_user_id] => US.13491208655302741918
+                                                            [type] => text
+                                                            [text] => Array
+                                                                (
+                                                                    [body] => this is a text message
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+Array
+(
+    [id] => ABGGFlA5Fpa
+    [timestamp] => 1504902988
+    [from] => 16315551181
+    [from_user_id] => US.13491208655302741918
+    [type] => text
+    [text] => Array
+        (
+            [body] => this is a text message
+        )
+
+)
+Mensaje guardado correctamente

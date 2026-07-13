@@ -7,7 +7,6 @@ use App\Controllers\WhatsAppController;
 $controller = new WhatsAppController();
 
 //use App\Services\WhatsAppClient;
-
 //$whatsAppClient = new WhatsAppClient();
 
 echo "<pre>";

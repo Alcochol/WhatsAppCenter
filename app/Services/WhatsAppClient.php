@@ -77,80 +77,80 @@ class WhatsAppClient
 
     }*/
 
-        public function sendText($to, $message)
-{
-    $url = "https://graph.facebook.com/v23.0/{$this->phoneNumberId}/messages";
+    public function sendText($to, $message)
+    {
+        $url = "https://graph.facebook.com/v23.0/{$this->phoneNumberId}/messages";
 
-  $data = [
+    $data = [
 
-    "messaging_product" => "whatsapp",
+        "messaging_product" => "whatsapp",
 
-    "recipient_type" => "individual",
+        "recipient_type" => "individual",
 
-    "to" => $to,
+        "to" => $to,
 
-    "type" => "text",
+        "type" => "text",
 
-    "text" => [
-        "preview_url" => false,
-        "body" => $message
-    ]
+        "text" => [
+            "preview_url" => false,
+            "body" => $message
+        ]
 
-];
+    ];
 
-    $curl = curl_init($url);
+        $curl = curl_init($url);
 
-    curl_setopt_array($curl, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_POST => true,
-        CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer {$this->token}",
-            "Content-Type: application/json"
-        ],
-        CURLOPT_POSTFIELDS => json_encode($data),
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_VERBOSE => true
-    ]);
+        curl_setopt_array($curl, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer {$this->token}",
+                "Content-Type: application/json"
+            ],
+            CURLOPT_POSTFIELDS => json_encode($data),
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_VERBOSE => true
+        ]);
 
-    $response = curl_exec($curl);
+        $response = curl_exec($curl);
 
-    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-    if ($response === false) {
+        if ($response === false) {
+            return [
+                'curl_error' => curl_error($curl)
+            ];
+        }
+
+        curl_close($curl);
+
         return [
-            'curl_error' => curl_error($curl)
+            'http_code' => $httpCode,
+            'request' => $data,
+            'response_raw' => $response,
+            'response' => json_decode($response, true)
         ];
     }
 
-    curl_close($curl);
+    /*public function getPhoneNumber()
+    {
+        $url = "https://graph.facebook.com/v23.0/{$this->phoneNumberId}";
 
-    return [
-        'http_code' => $httpCode,
-        'request' => $data,
-        'response_raw' => $response,
-        'response' => json_decode($response, true)
-    ];
-}
+        $curl = curl_init($url);
 
-    public function getPhoneNumber()
-{
-    $url = "https://graph.facebook.com/v23.0/{$this->phoneNumberId}";
+        curl_setopt_array($curl, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => [
+                "Authorization: Bearer {$this->token}"
+            ]
+        ]);
 
-    $curl = curl_init($url);
+        $response = curl_exec($curl);
 
-    curl_setopt_array($curl, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => [
-            "Authorization: Bearer {$this->token}"
-        ]
-    ]);
+        curl_close($curl);
 
-    $response = curl_exec($curl);
-
-    curl_close($curl);
-
-    return json_decode($response, true);
-}
+        return json_decode($response, true);
+    }*/
 
 
 }
