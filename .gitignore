@@ -1,1 +1,22 @@
+# Dependencias
 /vendor/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Archivos temporales
+/cache/
+/tmp/
+
+# Configuración de IDE
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
