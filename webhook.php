@@ -39,48 +39,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 | Recepción de mensajes
 |--------------------------------------------------------------------------
 */
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
 
     $input = file_get_contents('php://input');
 
-    // Guardar el JSON para depuración
     file_put_contents(
-        __DIR__ . '/storage/logs/webhook.log',
-        date('Y-m-d H:i:s') . PHP_EOL .
-        $input . PHP_EOL . PHP_EOL,
+    __DIR__.'/storage/logs/'.date('His').'.json',
+        date('Y-m-d H:i:s').PHP_EOL.
+        $input.PHP_EOL.
+        "================================".PHP_EOL,
         FILE_APPEND
     );
 
     $payload = json_decode($input, true);
 
-
-    file_put_contents(
-    __DIR__ . '/storage/logs/prueba.txt',
-    'ANTES DEL SERVICE' . PHP_EOL,
-    FILE_APPEND
-        );
-
     try {
 
-    $service = new WebhookService();
-    $service->process($payload);
+        $service = new WebhookService();
 
-} catch (Throwable $e) {
+        $service->process($payload);
+
+    } catch (Throwable $e) {
+
+        file_put_contents(
+    __DIR__.'/storage/logs/PAYLOAD.log',
+    print_r($payload, true).PHP_EOL.
+    "========================".PHP_EOL,
+    FILE_APPEND
+);
+
+if (!isset($payload['entry'][0]['changes'][0]['value']['messages'])) {
 
     file_put_contents(
-        __DIR__.'/storage/logs/error.log',
-        date('Y-m-d H:i:s').PHP_EOL.
-        $e->getMessage().PHP_EOL.
-        $e->getTraceAsString().PHP_EOL.PHP_EOL,
+        __DIR__.'/storage/logs/PAYLOAD.log',
+        "NO HAY MENSAJES".PHP_EOL,
+        FILE_APPEND
+    );
+
+} else {
+
+    file_put_contents(
+        __DIR__.'/storage/logs/PAYLOAD.log',
+        "SI HAY MENSAJES".PHP_EOL,
         FILE_APPEND
     );
 
 }
 
+    }
+
     http_response_code(200);
     echo "EVENT_RECEIVED";
     exit;
-
 }

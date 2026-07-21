@@ -15,7 +15,7 @@ class WhatsAppController
 
     public function enviar()
     {
-        $telefono = "5213117439200"; // Tu número para pruebas
+        $telefono = "523111225726"; // Tu número para pruebas
 
         $mensaje = "Hola Ángel 👋\n\nEste mensaje fue enviado desde tu sistema PHP.";
 

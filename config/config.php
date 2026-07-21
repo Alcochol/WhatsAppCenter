@@ -17,13 +17,13 @@ return [
 
     'verify_token' => $_ENV['WHATSAPP_VERIFY_TOKEN'],
 
-    'db_host' => 'localhost',
+    'db_host' => $_ENV['DB_HOST'],
+    
+    'db_name' => $_ENV['DB_DATABASE'],
+ 
+    'db_user' => $_ENV['DB_USERNAME'],
 
-    'db_name' => 'WhatsAppCenter',
-
-    'db_user' => 'root',
-
-    'db_password' => '',
+    'db_password' => $_ENV['DB_PASSWORD'],
 
 
 ];

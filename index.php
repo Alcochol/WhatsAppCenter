@@ -2,13 +2,22 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use App\Controllers\WhatsAppController;
+$page = $_GET['page'] ?? 'dashboard';
 
-$controller = new WhatsAppController();
+switch ($page) {
 
-//use App\Services\WhatsAppClient;
-//$whatsAppClient = new WhatsAppClient();
+    case 'dashboard':
+        require __DIR__ . '/app/Views/dashboard/index.php';
+        break;
 
-echo "<pre>";
-print_r($controller->enviar());
-echo "</pre>";
+    case 'conversations':
+        require __DIR__ . '/app/Views/conversations/index.php';
+        break;
+
+    case 'contacts':
+        require __DIR__ . '/app/Views/contacts/index.php';
+        break;
+
+    default:
+        echo "Página no encontrada";
+}
