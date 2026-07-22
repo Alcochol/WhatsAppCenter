@@ -1,23 +1,19 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+session_start();
 
-$page = $_GET['page'] ?? 'dashboard';
+require_once __DIR__.'/vendor/autoload.php';
 
-switch ($page) {
+include 'app/Views/layouts/header.php';
 
-    case 'dashboard':
-        require __DIR__ . '/app/Views/dashboard/index.php';
-        break;
+include 'app/Views/layouts/navbar.php';
 
-    case 'conversations':
-        require __DIR__ . '/app/Views/conversations/index.php';
-        break;
+include 'app/Views/layouts/sidebar.php';
 
-    case 'contacts':
-        require __DIR__ . '/app/Views/contacts/index.php';
-        break;
+$router = require 'routes/web.php';
 
-    default:
-        echo "Página no encontrada";
-}
+$router->dispatch();
+
+include 'app/Views/layouts/footer.php';
+
+include 'app/Views/layouts/scripts.php';

@@ -1,33 +1,38 @@
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+
+<!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
 
-<ul class="navbar-nav">
+    <ul class="navbar-nav">
 
-<li class="nav-item">
+        <li class="nav-item">
 
-<a class="nav-link" data-widget="pushmenu" href="#">
+            <a class="nav-link" data-widget="pushmenu" href="#">
 
-<i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
 
-</a>
+            </a>
 
-</li>
+        </li>
 
-</ul>
+    </ul>
 
-<ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto">
 
-<li class="nav-item">
+        <li class="nav-item">
 
-<span class="nav-link">
+            <span class="nav-link">
 
-<i class="fab fa-whatsapp text-success"></i>
+                <i class="fab fa-whatsapp text-success"></i>
 
-WhatsApp Contact Center
+                WhatsApp Contact Center
 
-</span>
+            </span>
 
-</li>
+        </li>
 
-</ul>
+    </ul>
 
 </nav>

@@ -50,4 +50,20 @@ class Conversation
 
     }
 
+
+    public function getAll()
+    {
+        $sql = "SELECT
+                    c.id,
+                    ct.nombre,
+                    ct.telefono,
+                    c.fecha_inicio
+                FROM conversaciones c
+                INNER JOIN contactos ct
+                        ON ct.id=c.contacto_id
+                ORDER BY c.id DESC";
+
+        return $this->db->query($sql)->fetchAll();
+    }
+
 }

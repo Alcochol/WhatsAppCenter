@@ -1,10 +1,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-<a href="#" class="brand-link">
+<a href="index.php" class="brand-link">
 
 <span class="brand-text font-weight-light">
 
-WhatsApp Center
+WhatsAppCenter
 
 </span>
 
@@ -18,9 +18,9 @@ WhatsApp Center
 
 <li class="nav-item">
 
-<a href="?page=dashboard" class="nav-link active">
+<a href="index.php" class="nav-link">
 
-<i class="nav-icon fas fa-home"></i>
+<i class="nav-icon fas fa-chart-line"></i>
 
 <p>Dashboard</p>
 
@@ -56,6 +56,42 @@ WhatsApp Center
 
 <a href="#" class="nav-link">
 
+<i class="nav-icon fas fa-tags"></i>
+
+<p>Etiquetas</p>
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a href="#" class="nav-link">
+
+<i class="nav-icon fas fa-paper-plane"></i>
+
+<p>Plantillas</p>
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a href="#" class="nav-link">
+
+<i class="nav-icon fas fa-robot"></i>
+
+<p>Bot</p>
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a href="#" class="nav-link">
+
 <i class="nav-icon fas fa-chart-bar"></i>
 
 <p>Reportes</p>
@@ -68,7 +104,7 @@ WhatsApp Center
 
 <a href="#" class="nav-link">
 
-<i class="nav-icon fas fa-cogs"></i>
+<i class="nav-icon fas fa-cog"></i>
 
 <p>Configuración</p>
 
