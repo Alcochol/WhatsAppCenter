@@ -8,9 +8,9 @@ $data = $controller->index();
 
 
 
-include __DIR__.'/../layouts/header.php';
-include __DIR__.'/../layouts/navbar.php';
-include __DIR__.'/../layouts/sidebar.php';
+//include __DIR__.'/../layouts/header.php';
+//include __DIR__.'/../layouts/navbar.php';
+//include __DIR__.'/../layouts/sidebar.php';
 ?>
 
 <div class="content-wrapper">
@@ -54,7 +54,7 @@ include __DIR__.'/../layouts/sidebar.php';
 
 <?php
 
-include __DIR__.'/../layouts/footer.php';
-include __DIR__.'/../layouts/scripts.php';
+//include __DIR__.'/../layouts/footer.php';
+//include __DIR__.'/../layouts/scripts.php';
 
 ?>

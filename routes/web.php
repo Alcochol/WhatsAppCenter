@@ -1,80 +1,22 @@
 <?php
 
-use App\Core\Router;
-
-$router = new Router();
-
-/*
-|--------------------------------------------------------------------------
-| Dashboard
-|--------------------------------------------------------------------------
-*/
-
-$router->get('dashboard', function () {
-
-    include 'app/Views/dashboard/index.php';
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| Contactos
-|--------------------------------------------------------------------------
-*/
-
-$router->get('contacts', function () {
-
-    include 'app/Views/contacts/index.php';
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| Conversaciones
-|--------------------------------------------------------------------------
-*/
-
-$router->get('conversations', function () {
-
-    include 'app/Views/conversations/index.php';
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| Login
-|--------------------------------------------------------------------------
-*/
+use App\Controllers\AuthController;
+use App\Controllers\DashboardController;
 
 $router->get('login', function () {
 
-    include 'app/Views/login/index.php';
+    (new AuthController())->login();
 
 });
 
+$router->post('login', function () {
 
-/*
-|--------------------------------------------------------------------------
-| Users
-|--------------------------------------------------------------------------
-*/
-
-$router->get('users', function () {
-
-    include 'app/Views/users/index.php';
+    (new AuthController())->login();
 
 });
 
-/*
-|--------------------------------------------------------------------------
-| Reports
-|--------------------------------------------------------------------------
-*/
+$router->get('dashboard', function () {
 
-$router->get('reports', function () {
-
-    include 'app/Views/reports/index.php';
+    (new DashboardController())->index();
 
 });
-
-return $router;

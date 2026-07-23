@@ -1,48 +1,52 @@
 <?php
 
+namespace App\Controllers;
+
 use App\Core\BaseController;
+use App\Core\Session;
+use App\Models\User;
 
 class AuthController extends BaseController
 {
-    public function login($correo,$password)
+    public function login()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $userModel = new User();
+            $correo = trim($_POST['correo'] ?? '');
+            $password = $_POST['password'] ?? '';
 
-        $usuario = $userModel->login($correo);
+            $user = new User();
 
-        if(!$usuario){
+            $usuario = $user->findByEmail($correo);
 
-            return false;
+            if (!$usuario) {
 
+                return $this->view('login/index', [
+                    'error' => 'Correo o contraseña incorrectos.'
+                ]);
+            }
+
+            if (!password_verify($password, $usuario['password'])) {
+
+                return $this->view('login/index', [
+                    'error' => 'Correo o contraseña incorrectos.'
+                ]);
+            }
+
+            Session::set('usuario', $usuario);
+
+            $user->actualizarUltimoAcceso($usuario['id']);
+
+            $this->redirect('dashboard');
         }
 
-        if(!password_verify($password,$usuario['password'])){
-
-            return false;
-
-        }
-
-        $userModel->actualizarUltimoAcceso($usuario['id']);
-
-        $_SESSION['usuario']=$usuario;
-
-        return true;
-
+        $this->view('login/index');
     }
 
     public function logout()
     {
+        Session::destroy();
 
-        session_destroy();
-
-        header("Location:index.php?page=login");
-
-        exit;
-
+        $this->redirect('login');
     }
-
 }
-
-
-

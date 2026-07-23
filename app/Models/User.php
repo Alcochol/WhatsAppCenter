@@ -2,17 +2,19 @@
 
 namespace App\Models;
 
-use App\Database\Database;
-use PDO;
+use App\Core\BaseModel;
 
-class User
+//use App\Database\Database;
+//use PDO;
+
+class User extends BaseModel
 {
-    private PDO $db;
+    //private PDO $db;
 
-    public function __construct()
+    /*public function __construct()
     {
         $this->db = Database::connect();
-    }
+    }*/
 
     public function login(string $correo)
     {

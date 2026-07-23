@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Controllers;
+
 use App\Controllers\ConversationController;
 
 $controller = new ConversationController();
