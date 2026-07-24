@@ -21,26 +21,34 @@ class AuthController extends BaseController
 
             if (!$usuario) {
 
-                return $this->view('login/index', [
-                    'error' => 'Correo o contraseña incorrectos.'
-                ]);
+                return $this->render(
+                    'login/index',
+                    [
+                        'error' => 'Correo o contraseña incorrectos.'
+                    ],
+                    'app'
+                );
             }
 
             if (!password_verify($password, $usuario['password'])) {
 
-                return $this->view('login/index', [
-                    'error' => 'Correo o contraseña incorrectos.'
-                ]);
+                return $this->render(
+                    'login/index',
+                    [
+                        'error' => 'Correo o contraseña incorrectos.'
+                    ],
+                    'app'
+                );
             }
 
             Session::set('usuario', $usuario);
 
             $user->actualizarUltimoAcceso($usuario['id']);
 
-            $this->redirect('dashboard');
+            return $this->redirect('dashboard');
         }
 
-        $this->view('login/index');
+        return $this->render('login/index', [], 'app');
     }
 
     public function logout()

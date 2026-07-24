@@ -1,35 +1,75 @@
 <div class="login-box">
 
+    <div class="login-logo">
+        <b>WhatsApp</b>Center
+    </div>
+
     <div class="card">
 
-        <div class="card-body">
+        <div class="card-body login-card-body">
 
-            <form method="POST">
+            <p class="login-box-msg">
+                Iniciar sesión
+            </p>
 
-                <div class="form-group">
+            <?php if(isset($error)): ?>
 
-                    <input
-                        type="email"
-                        class="form-control"
-                        name="correo"
-                        placeholder="Correo">
+                <div class="alert alert-danger">
+
+                    <?= $error ?>
 
                 </div>
 
-                <div class="form-group">
+            <?php endif; ?>
+
+            <form method="POST" action="index.php?page=login">
+
+                <div class="input-group mb-3">
+
+                    <input
+                        type="email"
+                        name="correo"
+                        class="form-control"
+                        placeholder="Correo"
+                        required>
+
+                    <div class="input-group-append">
+
+                        <div class="input-group-text">
+
+                            <span class="fas fa-envelope"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="input-group mb-3">
 
                     <input
                         type="password"
-                        class="form-control"
                         name="password"
-                        placeholder="Contraseña">
+                        class="form-control"
+                        placeholder="Contraseña"
+                        required>
+
+                    <div class="input-group-append">
+
+                        <div class="input-group-text">
+
+                            <span class="fas fa-lock"></span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
                 <button
                     class="btn btn-success btn-block">
 
-                    Iniciar sesión
+                    Entrar
 
                 </button>
 

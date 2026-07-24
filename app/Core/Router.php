@@ -6,31 +6,44 @@ class Router
 {
     private array $routes = [];
 
-    public function get($page, callable $callback)
+    public function get($page, $callback)
     {
         $this->routes['GET'][$page] = $callback;
     }
 
-    public function post($page, callable $callback)
+    public function post($page, $callback)
     {
         $this->routes['POST'][$page] = $callback;
     }
 
     public function dispatch()
     {
-        $method = $_SERVER['REQUEST_METHOD'];
+        $httpMethod = $_SERVER['REQUEST_METHOD'];
 
         $page = $_GET['page'] ?? 'dashboard';
 
-        if (isset($this->routes[$method][$page])) {
+        if (!isset($this->routes[$httpMethod][$page])) {
 
-            $this->routes[$method][$page]();
+            http_response_code(404);
+
+            echo "<h1>404 - Página no encontrada</h1>";
 
             return;
         }
 
-        http_response_code(404);
+        $callback = $this->routes[$httpMethod][$page];
 
-        echo "<h1>404 - Página no encontrada</h1>";
+        if (is_array($callback)) {
+
+            $controller = new $callback[0];
+
+            $method = $callback[1];
+
+            $controller->$method();
+
+            return;
+        }
+
+        $callback();
     }
 }

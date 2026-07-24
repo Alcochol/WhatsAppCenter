@@ -2,20 +2,17 @@
 
 namespace App\Middleware;
 
+use App\Core\Session;
+
 class AuthMiddleware
 {
-
-    public static function verificar()
+    public static function handle()
     {
+        if (!Session::has('usuario')) {
 
-        if(!isset($_SESSION['usuario'])){
-
-            header("Location:index.php?page=login");
+            header("Location: index.php?page=login");
 
             exit;
-
         }
-
     }
-
 }

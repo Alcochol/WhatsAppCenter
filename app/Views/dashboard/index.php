@@ -1,60 +1,38 @@
-<?php
-
-use App\Controllers\DashboardController;
-
-$controller = new DashboardController();
-
-$data = $controller->index();
-
-
-
-//include __DIR__.'/../layouts/header.php';
-//include __DIR__.'/../layouts/navbar.php';
-//include __DIR__.'/../layouts/sidebar.php';
-?>
-
 <div class="content-wrapper">
 
     <section class="content-header">
-
         <div class="container-fluid">
-
             <h1>Dashboard</h1>
-
         </div>
-
     </section>
 
     <section class="content">
 
         <div class="container-fluid">
 
-            Bienvenido a WhatsApp Contact Center
+            <div class="row">
 
-        </div>
+                <div class="col-lg-3">
 
+                    <div class="small-box bg-success">
 
-        <div>
+                        <div class="inner">
+                            <h3>10</h3>
+                            <p>Conversaciones</p>
+                        </div>
 
-            <h3>Conversaciones</h3>
-            <?= $data['conversaciones'] ?>
+                        <div class="icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
 
-            <h3>Contactos</h3>
-            <?= $data['contactos'] ?>
+                    </div>
 
-            <h3>Mensajes</h3>
-            <?= $data['mensajes'] ?>
+                </div>
 
+            </div>
 
         </div>
 
     </section>
 
 </div>
-
-<?php
-
-//include __DIR__.'/../layouts/footer.php';
-//include __DIR__.'/../layouts/scripts.php';
-
-?>

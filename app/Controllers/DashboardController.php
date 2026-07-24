@@ -13,8 +13,12 @@ class DashboardController extends BaseController
 
         $data = $dashboard->resumen();
 
-        return $this->view('dashboard/index', [
-            'data' => $data
-        ]);
+    $this->render(
+        'dashboard/index',
+        [
+            'data'=>$data
+        ],
+        'app'
+        );
     }
 }

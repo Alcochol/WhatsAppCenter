@@ -2,32 +2,24 @@
 
     <section class="content-header">
         <div class="container-fluid">
-            <h1>Contactos</h1>
+            <h1>Configuracion</h1>
         </div>
     </section>
 
     <section class="content">
-
         <div class="container-fluid">
 
             <div class="card">
-
                 <div class="card-header">
-                    <h3 class="card-title">
-                        Lista de Contactos
-                    </h3>
+                    <h3 class="card-title">Configuracion</h3>
                 </div>
 
                 <div class="card-body">
-
-                    Próximamente aquí aparecerán todos los Contactos de WhatsApp.
-
+                    Próximamente aparecerán las configuraciones.
                 </div>
-
             </div>
 
         </div>
-
     </section>
 
 </div>

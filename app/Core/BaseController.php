@@ -58,4 +58,17 @@ class BaseController
             "message" => $message
         ], $status);
     }
+
+    protected function render(string $view, array $data = [], string $layout = 'app')
+    {
+        extract($data);
+
+        ob_start();
+
+        include __DIR__ . "/../Views/{$view}.php";
+
+        $content = ob_get_clean();
+
+        include __DIR__ . "/../Views/layouts/{$layout}.php";
+    }
 }

@@ -54,7 +54,7 @@ WhatsAppCenter
 
 <li class="nav-item">
 
-<a href="#" class="nav-link">
+<a href="?page=labels" class="nav-link">
 
 <i class="nav-icon fas fa-tags"></i>
 
@@ -66,7 +66,7 @@ WhatsAppCenter
 
 <li class="nav-item">
 
-<a href="#" class="nav-link">
+<a href="?page=templates" class="nav-link">
 
 <i class="nav-icon fas fa-paper-plane"></i>
 
@@ -78,7 +78,7 @@ WhatsAppCenter
 
 <li class="nav-item">
 
-<a href="#" class="nav-link">
+<a href="?page=bot" class="nav-link">
 
 <i class="nav-icon fas fa-robot"></i>
 
@@ -90,7 +90,7 @@ WhatsAppCenter
 
 <li class="nav-item">
 
-<a href="#" class="nav-link">
+<a href="?page=reports" class="nav-link">
 
 <i class="nav-icon fas fa-chart-bar"></i>
 
@@ -102,7 +102,7 @@ WhatsAppCenter
 
 <li class="nav-item">
 
-<a href="#" class="nav-link">
+<a href="?page=settings" class="nav-link">
 
 <i class="nav-icon fas fa-cog"></i>
 
