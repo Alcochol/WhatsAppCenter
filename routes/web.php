@@ -29,3 +29,5 @@ $router->get('settings', [SettingController::class, 'index']);
 $router->get('login', [AuthController::class, 'login']);
 
 $router->post('login', [AuthController::class, 'login']);
+
+$router->post('contacts/store', [ContactController::class, 'store']);

@@ -12,6 +12,21 @@
 <link rel="stylesheet" href="/WhatsAppCenter/public/assets/dist/css/adminlte.min.css">
 <link rel="stylesheet" href="/WhatsAppCenter/public/css/style.css">
 
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
+<link rel="stylesheet" href="/WhatsAppCenter/public/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+<link rel="stylesheet"
+href="/WhatsAppCenter/public/assets/plugins/sweetalert2/sweetalert2.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

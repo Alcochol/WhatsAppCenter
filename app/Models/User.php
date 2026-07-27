@@ -27,7 +27,7 @@ class User extends BaseModel
 
         $stmt->execute([$correo]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     public function actualizarUltimoAcceso(int $id)

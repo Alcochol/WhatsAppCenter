@@ -31,7 +31,7 @@ class Conversation extends BaseModel
 
         $stmt->execute([$contactId]);
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     /**
