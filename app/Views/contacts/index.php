@@ -46,6 +46,7 @@
     <div class="card-body">
 
 
+
 <table id="tablaContactos" class="table table-bordered table-striped">
 
 <thead>
@@ -62,30 +63,14 @@
 
 <th>Activo</th>
 
+<th>Acciones</th>
+
 </tr>
 
 </thead>
 
 <tbody>
 
-<?php $contactos = (isset($contactos) && is_array($contactos)) ? $contactos : []; ?>
-<?php foreach($contactos as $c): ?>
-
-<tr>
-
-<td><?= $c['id'] ?></td>
-
-<td><?= $c['nombre'] ?></td>
-
-<td><?= $c['telefono'] ?></td>
-
-<td><?= $c['origen'] ?></td>
-
-<td><?= $c['activo'] ?></td>
-
-</tr>
-
-<?php endforeach; ?>
 
 </tbody>
 
@@ -97,11 +82,11 @@
 
         <div class="modal-content">
 
-            <form id="frmContacto">
+            <form id="frmContacto"  method="POST">
 
                 <div class="modal-header bg-success">
 
-                    <h4 class="modal-title">
+                    <h4 class="modal-title" id="tituloModal">
 
                         Nuevo Contacto
 
@@ -112,11 +97,13 @@
                         class="close"
                         data-dismiss="modal">
 
-                        &times;
+                        <span>&times;</span>
 
                     </button>
 
                 </div>
+
+                <input type="hidden" id="id" name="id" value="">
 
                 <div class="modal-body">
 
@@ -125,9 +112,10 @@
                         <label>Nombre</label>
 
                         <input
-                            type="text"
-                            class="form-control"
-                            name="nombre">
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        class="form-control">
 
                     </div>
 
@@ -136,9 +124,10 @@
                         <label>Teléfono</label>
 
                         <input
-                            type="text"
-                            class="form-control"
-                            name="telefono">
+                        type="text"
+                        id="telefono"
+                        name="telefono"
+                        class="form-control">
 
                     </div>
 
@@ -147,6 +136,7 @@
                 <div class="modal-footer">
 
                     <button
+                        id="btnGuardarContacto"
                         type="submit"
                         class="btn btn-success">
 
@@ -163,3 +153,13 @@
     </div>
 
 </div>
+
+</div> <!-- card-body -->
+
+</div> <!-- card -->
+
+</div> <!-- container-fluid -->
+
+</section>
+
+</div> <!-- content-wrapper -->

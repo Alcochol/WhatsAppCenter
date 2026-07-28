@@ -31,3 +31,9 @@ $router->get('login', [AuthController::class, 'login']);
 $router->post('login', [AuthController::class, 'login']);
 
 $router->post('contacts/store', [ContactController::class, 'store']);
+
+$router->get('contacts/list', [ContactController::class, 'list']);
+
+$router->get('contacts/edit',[ContactController::class,'edit']);
+
+$router->post('contacts/update',[ContactController::class,'update']);
