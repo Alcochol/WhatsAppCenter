@@ -118,4 +118,20 @@ abstract class BaseModel
         return $this->first($campo,$valor)!==false;
 
     }
+
+
+    public function deactivate($id)
+{
+    $stmt = $this->db->prepare(
+
+        "UPDATE {$this->table}
+
+        SET activo = 0
+
+        WHERE id = ?"
+
+    );
+
+    return $stmt->execute([$id]);
+}
 }

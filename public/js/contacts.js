@@ -159,4 +159,38 @@ $(function () {
 
     $("#tituloModal").text("Nuevo Contacto");
   });
+
+  //=========================
+  // ELIMINAR CONTACTO
+  //=========================
+
+  $(document).on("click", ".btnEliminar", function () {
+    let id = $(this).data("id");
+
+    confirmarEliminar(function () {
+      $.ajax({
+        url: "index.php?page=contacts/delete",
+
+        type: "POST",
+
+        data: { id: id },
+
+        dataType: "json",
+
+        success: function (response) {
+          if (response.success) {
+            mensajeOk(response.message);
+
+            tabla.ajax.reload(null, false);
+          } else {
+            mensajeError(response.message);
+          }
+        },
+
+        error: function () {
+          mensajeError("Error al eliminar el contacto.");
+        },
+      });
+    });
+  });
 });

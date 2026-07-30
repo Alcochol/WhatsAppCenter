@@ -121,4 +121,23 @@ class ContactController extends BaseController
         return $this->success("Contacto actualizado correctamente.");
     }
 
+    public function delete()
+    {
+        $id = $_POST['id'] ?? 0;
+
+        if ($id == 0) {
+            return $this->error("ID inválido.");
+        }
+
+        $contact = new Contact();
+
+        if (!$contact->find($id)) {
+            return $this->error("El contacto no existe.");
+        }
+
+        $contact->deactivate($id);
+
+        return $this->success("Contacto eliminado correctamente.");
+    }
+
 }

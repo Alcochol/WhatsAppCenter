@@ -37,3 +37,5 @@ $router->get('contacts/list', [ContactController::class, 'list']);
 $router->get('contacts/edit',[ContactController::class,'edit']);
 
 $router->post('contacts/update',[ContactController::class,'update']);
+
+$router->post('contacts/delete',[ContactController::class,'delete']);
