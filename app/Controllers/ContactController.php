@@ -135,7 +135,7 @@ class ContactController extends BaseController
             return $this->error("El contacto no existe.");
         }
 
-        $contact->deactivate($id);
+        $contact->desactivate($id);
 
         return $this->success("Contacto eliminado correctamente.");
     }

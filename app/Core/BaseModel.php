@@ -120,7 +120,7 @@ abstract class BaseModel
     }
 
 
-    public function deactivate($id)
+    public function desactivate($id)
 {
     $stmt = $this->db->prepare(
 
