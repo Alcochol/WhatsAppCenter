@@ -25,7 +25,7 @@ abstract class BaseModel
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function find($id)
+    public function find(int $id)
     {
         $stmt = $this->db->prepare(
             "SELECT * FROM {$this->table}
@@ -37,7 +37,7 @@ abstract class BaseModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         $stmt = $this->db->prepare(
             "DELETE FROM {$this->table}
@@ -67,7 +67,7 @@ abstract class BaseModel
     }
 
 
-    public function update($id,array $data)
+    public function update(int $id,array $data)
     {
 
         $campos=[];
@@ -92,7 +92,7 @@ abstract class BaseModel
 
     }
 
-    public function first(string $campo,$valor)
+    public function first(string $campo, mixed $valor)
     {
 
         $stmt=$this->db->prepare(
@@ -112,26 +112,85 @@ abstract class BaseModel
     }
 
     
-    public function exists(string $campo,$valor)
+    public function exists(string $campo, mixed $valor)
     {
 
-        return $this->first($campo,$valor)!==false;
+        return $this->first($campo, $valor) !== false;
 
     }
 
 
-    public function desactivate($id)
-{
-    $stmt = $this->db->prepare(
+    public function deactivate(int $id)
+    {
+        $stmt = $this->db->prepare(
 
-        "UPDATE {$this->table}
+            "UPDATE {$this->table}
 
-        SET activo = 0
+            SET activo = 0
 
-        WHERE id = ?"
+            WHERE {$this->primaryKey}=?"
 
-    );
+        );
 
-    return $stmt->execute([$id]);
-}
+        return $stmt->execute([$id]);
+    }
+
+    public function activate(int $id)
+    {
+        $stmt = $this->db->prepare(
+
+            "UPDATE {$this->table}
+
+            SET activo = 1
+
+            WHERE {$this->primaryKey} = ?"
+
+        );
+
+        return $stmt->execute([$id]);
+    }
+
+    public function count()
+    {
+        return $this->db
+            ->query("SELECT COUNT(*) FROM {$this->table}")
+            ->fetchColumn();
+    }
+
+    public function countWhere(string $campo,mixed $valor)
+    {
+        $stmt=$this->db->prepare(
+
+            "SELECT COUNT(*)
+
+            FROM {$this->table}
+
+            WHERE {$campo}=?"
+
+        );
+
+        $stmt->execute([$valor]);
+
+        return $stmt->fetchColumn();
+
+    }
+
+    public function getWhere(string $campo, mixed $valor)
+    {
+        $stmt=$this->db->prepare(
+
+            "SELECT *
+
+            FROM {$this->table}
+
+            WHERE {$campo}=?"
+
+        );
+
+        $stmt->execute([$valor]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+    
 }

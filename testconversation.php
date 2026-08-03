@@ -6,7 +6,7 @@ use App\Models\Conversation;
 
 /*$conversation=new Conversation();
 
-$id=$conversation->create(1);
+$id=$conversation->createconversacion(1);
 
 echo $id;*/
 

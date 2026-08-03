@@ -16,7 +16,8 @@ class Message extends BaseModel
         $this->db = Database::connect();
     }*/
 
-    public function create(
+    
+        public function createmensajes(
         int $conversationId,
         string $whatsappMessageId,
         string $telefono,
@@ -57,4 +58,6 @@ class Message extends BaseModel
 
         return $this->db->lastInsertId();
     }
+
+
 }

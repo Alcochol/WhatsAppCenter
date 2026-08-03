@@ -18,16 +18,16 @@ class Dashboard extends BaseModel
 
     public function resumen()
     {
+    
+
         return [
 
             'contactos'=>$this->db
                 ->query("SELECT COUNT(*) FROM contactos")
                 ->fetchColumn(),
-
             'conversaciones'=>$this->db
                 ->query("SELECT COUNT(*) FROM conversaciones")
                 ->fetchColumn(),
-
             'mensajes'=>$this->db
                 ->query("SELECT COUNT(*) FROM mensajes")
                 ->fetchColumn()

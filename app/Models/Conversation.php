@@ -16,7 +16,10 @@ class Conversation extends BaseModel
         $this->db = Database::connect();
     }*/
 
-    /**
+    protected string $table = 'conversaciones';
+
+
+        /**
      * Busca una conversación abierta del contacto
      */
     public function findOpenConversation(int $contactId)
@@ -37,7 +40,7 @@ class Conversation extends BaseModel
     /**
      * Crear conversación
      */
-    public function create(int $contactId)
+    public function createconversacion(int $contactId)
     {
 
         $sql="INSERT INTO conversaciones
@@ -67,5 +70,8 @@ class Conversation extends BaseModel
 
         return $this->db->query($sql)->fetchAll();
     }
+    /**
+     * Termina seccion de conversación 
+     */
 
 }
