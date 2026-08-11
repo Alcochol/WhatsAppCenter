@@ -14,6 +14,10 @@ $router->get('dashboard', [DashboardController::class, 'index']);
 
 $router->get('conversations', [ConversationController::class, 'index']);
 
+$router->get('conversations/list',[ConversationController::class, 'list']);
+
+$router->get('conversations/messages',[ConversationController::class, 'messages']);
+
 $router->get('contacts', [ContactController::class, 'index']);
 
 $router->get('labels', [LabelController::class, 'index']);

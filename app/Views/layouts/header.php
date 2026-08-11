@@ -27,6 +27,11 @@
 <link rel="stylesheet"
 href="/WhatsAppCenter/public/assets/plugins/sweetalert2/sweetalert2.min.css">
 
+<link
+    rel="stylesheet"
+    href="/WhatsAppCenter/public/css/conversations.css"
+>
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
