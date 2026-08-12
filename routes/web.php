@@ -18,6 +18,8 @@ $router->get('conversations/list',[ConversationController::class, 'list']);
 
 $router->get('conversations/messages',[ConversationController::class, 'messages']);
 
+$router->post('conversations/send',[ConversationController::class, 'sendMessage']);
+
 $router->get('contacts', [ContactController::class, 'index']);
 
 $router->get('labels', [LabelController::class, 'index']);

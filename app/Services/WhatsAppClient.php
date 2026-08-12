@@ -109,7 +109,7 @@ class WhatsAppClient
             ],
             CURLOPT_POSTFIELDS => json_encode($data),
             CURLOPT_TIMEOUT => 30,
-            CURLOPT_VERBOSE => true
+            //CURLOPT_VERBOSE => true
         ]);
 
         $response = curl_exec($curl);

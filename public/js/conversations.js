@@ -291,6 +291,75 @@ $(function () {
     });
   }
 
+  function enviarMensaje() {
+    const mensaje = $("#txtMensaje").val().trim();
+
+    if (mensaje === "") {
+      mensajeError("Escribe un mensaje.");
+      return;
+    }
+
+    if (!conversacionActual) {
+      mensajeError("Selecciona una conversación.");
+      return;
+    }
+
+    const boton = $("#btnEnviarMensaje");
+
+    boton.prop("disabled", true);
+
+    $.ajax({
+      url: "index.php?page=conversations/send",
+
+      type: "POST",
+
+      data: {
+        conversation_id: conversacionActual,
+        mensaje: mensaje,
+      },
+
+      dataType: "json",
+
+      success: function (response) {
+        if (response.success) {
+          $("#txtMensaje").val("");
+
+          // Volvemos a cargar los mensajes
+          cargarMensajes(conversacionActual);
+
+          // Actualizamos la lista de conversaciones
+          cargarConversaciones();
+        } else {
+          mensajeError(response.message);
+        }
+      },
+
+      error: function (xhr) {
+        console.log(xhr.responseText);
+
+        mensajeError("Ocurrió un error al enviar el mensaje.");
+      },
+
+      complete: function () {
+        boton.prop("disabled", false);
+
+        $("#txtMensaje").focus();
+      },
+    });
+  }
+
+  $("#btnEnviarMensaje").on("click", function () {
+    enviarMensaje();
+  });
+
+  $("#txtMensaje").on("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      enviarMensaje();
+    }
+  });
+
   function mostrarMensajes(mensajes) {
     if (!mensajes || mensajes.length === 0) {
       $("#contenedorMensajes").html(`
